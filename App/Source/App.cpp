@@ -1,16 +1,17 @@
 #include "../../Core/Source/Core/Core.h"
+
+#include "../Client/client.h"
+#include "../Admin/admin.h"
+
 #include <iostream>
 using namespace std;
 
 int main()
 {
-	cout << "Hello World!" << endl;
-	return 0;
+    CodenTalk app;
+    app.registerModule(new Client());
+    app.registerModule(new Admin());
+    app.run();
+    return 0;
+    // end of main
 }
-
-// #include "../../Core/Source/Core/Core.h"
-
-// int main()
-// {
-// 	Core::PrintHelloWorld();
-// }

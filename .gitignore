@@ -9,7 +9,7 @@ Binaries/
 *.sln
 *.log
 Makefile
-
+App/Source/temp.cpp
 # Exclude
 !Vendor/Binaries
 .vscode
