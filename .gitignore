@@ -13,3 +13,5 @@ App/Source/temp.cpp
 # Exclude
 !Vendor/Binaries
 .vscode
+main.exe
+/Core/Source/Files/*.txt

@@ -3,15 +3,23 @@
 #include "../Client/client.h"
 #include "../Admin/admin.h"
 
+//!temp
+#include "../../Core/Utils/utils.h"
+
 #include <iostream>
 using namespace std;
 
 int main()
-{
-    CodenTalk app;
-    app.registerModule(new Client());
-    app.registerModule(new Admin());
-    app.run();
+{   
+    /*Registration reg("clients.txt");
+     reg.signup();
+     reg.login();
+     CodenTalk app;
+     app.registerModule(new Client());
+     app.registerModule(new Admin());
+     app.run();*/
+
+
     return 0;
     // end of main
 }
