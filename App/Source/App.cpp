@@ -12,7 +12,8 @@ using namespace std;
 int main()
 {   
     Registration reg("Core/Source/Files/clients.txt");
-    reg.signup();
+    // reg.signup();
+    // reg.login();
     // CodenTalk app;
     // app.registerModule(new Client());
     // app.registerModule(new Admin());
