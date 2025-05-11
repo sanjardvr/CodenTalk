@@ -4,17 +4,17 @@
 #include "../Admin/admin.h"
 
 // //!temp
-// #include "../../Core/Utils/utils.h"
+ #include "../../Core/Utils/utils.h"
 
 #include <iostream>
 using namespace std;
 
 int main()
 {   
-    // Registration reg("Core/Source/Files/clients.txt");
-    // reg.signup();
-    // reg.login();
-    // reg.logOut();
+     /*Registration reg("Core/Source/Files/clients.txt");
+     reg.signup();
+     reg.login();
+     reg.logOut();*/
     CodenTalk app;
     app.registerModule(new Client());
     app.registerModule(new Admin());

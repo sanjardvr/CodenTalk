@@ -14,4 +14,5 @@ App/Source/temp.cpp
 !Vendor/Binaries
 .vscode
 main.exe
-/Core/Source/Files/*.txt
+# /Core/Source/Files/*.txt
+# *.txt

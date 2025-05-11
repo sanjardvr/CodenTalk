@@ -6,7 +6,10 @@ using namespace std;
 #include "client.h"
 #include "../../Core/Source/Core/Core.h"
 
-void addPersonalInfo()
+// for coffee menu:
+#include "../Coffee/coffee.h" 
+
+void addPersonalInfo() 
 {   
     Client obj;
     string filePath = "Core/Source/Files/clients_db.txt";
@@ -41,10 +44,7 @@ void addPersonalInfo()
         activeFile.close();
         cout << "\nYour details have been saved" << endl;
         ui.pauseExecution();
-
 }
-
-
 
 void Client::run()
     {
@@ -63,7 +63,7 @@ void Client::run()
                 addPersonalInfo();
                 break;
             case 2:
-                cout << "Hello" << endl;
+                showCoffeeMenuUI(ui);
                 break;
             case 0:
                 return;
