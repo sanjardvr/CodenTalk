@@ -26,8 +26,8 @@ public:
         string email, password;
         ui.clearScreen();
         ui.displayHeader("SignUp Process");
-        ui.getStringInput("Enter your email 📩", email);
-        ui.getStringInput("Enter your password 🔑", password);
+        ui.getStringInput("Enter your email", email);
+        ui.getStringInput("Enter your password", password);
 
         activeFile.open(filePath, ios::app);
         if (activeFile.is_open())
@@ -40,7 +40,7 @@ public:
                 activeFile << "                                        " << endl;
             }
             activeFile << email << "\t\t" << password << endl;
-            cout << "✅ You have successfully registered!" << endl;
+            cout << "You have successfully registered!" << endl;
         }
         else
         {
@@ -62,8 +62,8 @@ public:
             ui.clearScreen();
             ui.displayHeader("LogIn Process");
 
-            ui.getStringInput("Enter your email 📩", eInput);
-            ui.getStringInput("Enter your password 🔑", pInput);
+            ui.getStringInput("Enter your email", eInput);
+            ui.getStringInput("Enter your password", pInput);
 
             if (!activeFile.is_open())
             {
@@ -85,12 +85,12 @@ public:
 
             if (isFound)
             {
-                cout << "✅ Login successful. Welcome back, " << eInput << "!" << endl;
+                cout << "Login successful. Welcome back, " << eInput << "!" << endl;
                 break;
             }
             else
             {
-                cout << "❌ Login failed. Email or password is incorrect.Try again" << endl;
+                cout << "Login failed. Email or password is incorrect.Try again" << endl;
                 ui.pauseExecution();
                 ui.clearScreen();
             }
@@ -107,11 +107,11 @@ public:
 
     ui.clearScreen();
     ui.displayHeader("Account Deletion Process");
-    ui.getStringInput("Enter your email 📩", eInput);
-    ui.getStringInput("Enter your password 🔑", pInput);
+    ui.getStringInput("Enter your email", eInput);
+    ui.getStringInput("Enter your password", pInput);
 
     if (!inFile || !outFile) {
-        cout << "❌ Failed to open file." << endl;
+        cout << "Failed to open file." << endl;
         return;
     }
 
@@ -133,17 +133,17 @@ public:
 
     if (found) {
         if (remove(filePath.c_str()) != 0) {
-            cout << "❌ Failed to delete the original file." << endl;
+            cout << "Failed to delete the original file." << endl;
             return;
         }
         if (rename("Core/Source/Files/temp.txt", filePath.c_str()) != 0) {
-            cout << "❌ Failed to rename the temp file." << endl;
+            cout << "Failed to rename the temp file." << endl;
             return;
         }
-        cout << "✅ Account successfully deleted." << endl;
+        cout << "Account successfully deleted." << endl;
     } else {
         remove("Core/Source/Files/temp.txt");
-        cout << "❌ Account not found or incorrect credentials." <<endl;
+        cout << "Account not found or incorrect credentials." <<endl;
     }
 
     ui.pauseExecution();
