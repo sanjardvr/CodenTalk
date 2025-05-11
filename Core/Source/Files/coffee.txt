@@ -1,0 +1,3 @@
+Espresso\t2.50
+Cappuccino\t3.00
+Latte\t3.50
