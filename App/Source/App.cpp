@@ -11,13 +11,13 @@ using namespace std;
 
 int main()
 {   
-    /*Registration reg("clients.txt");
-     reg.signup();
-     reg.login();
-     CodenTalk app;
-     app.registerModule(new Client());
-     app.registerModule(new Admin());
-     app.run();*/
+    Registration reg("Core/Source/Files/clients.txt");
+    // reg.signup();
+    // reg.login();
+    // CodenTalk app;
+    // app.registerModule(new Client());
+    // app.registerModule(new Admin());
+    // app.run();
 
 
     return 0;
