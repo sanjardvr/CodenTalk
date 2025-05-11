@@ -97,4 +97,56 @@ public:
             attempts--;
         }
     }
+
+    void logOut()
+{
+    ifstream inFile(filePath);
+    ofstream outFile("Core/Source/Files/temp.txt");
+    string email, password, eInput, pInput;
+    bool found = false;
+
+    ui.clearScreen();
+    ui.displayHeader("Account Deletion Process");
+    ui.getStringInput("Enter your email 📩", eInput);
+    ui.getStringInput("Enter your password 🔑", pInput);
+
+    if (!inFile || !outFile) {
+        cout << "❌ Failed to open file." << endl;
+        return;
+    }
+
+    string line;
+    getline(inFile, line); outFile << line << endl;
+    getline(inFile, line); outFile << line << endl;
+
+    while (inFile >> email >> password)
+    {
+        if (email == eInput && password == pInput) {
+            found = true;
+            continue;
+        }
+        outFile << email << "\t\t" << password << endl;
+    }
+
+    inFile.close();
+    outFile.close();
+
+    if (found) {
+        if (remove(filePath.c_str()) != 0) {
+            cout << "❌ Failed to delete the original file." << endl;
+            return;
+        }
+        if (rename("Core/Source/Files/temp.txt", filePath.c_str()) != 0) {
+            cout << "❌ Failed to rename the temp file." << endl;
+            return;
+        }
+        cout << "✅ Account successfully deleted." << endl;
+    } else {
+        remove("Core/Source/Files/temp.txt");
+        cout << "❌ Account not found or incorrect credentials." <<endl;
+    }
+
+    ui.pauseExecution();
+}
+
 };
