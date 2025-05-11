@@ -82,7 +82,6 @@ public:
     void getStringInput(const string &prompt, string &buffer)
     {
         cout << prompt << " : ";
-        cin.ignore();
         getline(cin, buffer);
     }
 
