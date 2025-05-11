@@ -1,3 +1,19 @@
-Espresso\t2.50
-Cappuccino\t3.00
-Latte\t3.50
+Espresso 120
+Americano 150
+Latte 180
+Cappuccino 170
+Mocha 200
+FlatWhite 190
+Macchiato 160
+Ristretto 130
+Cortado 140
+Affogato 210
+IrishCoffee 250
+ColdBrew 160
+Frappuccino 220
+TurkishCoffee 140
+ViennaCoffee 190
+NitroColdBrew 230
+IcedLatte 170
+CaramelMacchiato 210
+VanillaLatte 200
