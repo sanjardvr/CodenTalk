@@ -5,13 +5,15 @@ project "App"
    targetdir "Binaries/%{cfg.buildcfg}"
    staticruntime "off"
 
-   files { "Source/**.h", "Source/**.cpp", "Client/**.cpp",  "Client/**.h", "Admin/**.h", "Admin/**.cpp" }
+   files { "Source/**.h", "Source/**.cpp", "Client/**.cpp",  "Client/**.h", "Admin/**.h", "Admin/**.cpp","Coffee/**.h", "Coffee/**.cpp","Person/**.h", "Person/**.cpp" }
 
    includedirs
    {
       "Source",
       "Admin",
       "Client",
+      "Coffee",
+      "Person",
 
 	  -- Include Core
 	  "../Core/Source"

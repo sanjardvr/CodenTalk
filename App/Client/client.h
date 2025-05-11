@@ -5,10 +5,9 @@ using namespace std;
 #include "../Person/person.h"
 #include "../../Core/Source/Core/Core.h"
 
-class Client : public Module , public Person
+class Client : public Module, public Person
 {
     ConsoleUIManager ui;
-    
 
 public:
     string getName() const override
