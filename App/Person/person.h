@@ -30,5 +30,7 @@ public:
         ui.displayHeader("Personal Information");
         cout << "Name : " << getName() << endl;
         cout << "Status : " << getStatus() << endl;
+        ui.pauseExecution();
     }
+
 };

@@ -8,9 +8,21 @@ using namespace std;
 #include "../../Core/Utils/utils.h"
 #include "../Coffee/coffee.h"
 
-void addPersonalInfo()
+void orderCoffee()
 {
-    Client obj;
+    Coffee coffee("Core/Source/Files/coffee.txt");
+    ConsoleUIManager ui;
+
+    string coffee_name;
+    ui.clearScreen();
+    ui.displayHeader("Order Coffee Process");
+    coffee.displayAllCoffee();
+    coffee.findCoffee();
+}
+
+
+void Client::addPersonalInfo()
+{
     string filePath = "Core/Source/Files/clients_db.txt";
     ofstream activeFile;
     string nInp;
@@ -21,8 +33,8 @@ void addPersonalInfo()
     ui.getStringInput("Enter your Name", nInp);
     ui.getStringInput("Enter your Age", age);
 
-    obj.setName(nInp);
-    obj.setStatus("Active");
+    this->setName(nInp);
+    this->setStatus("Active");
     activeFile.open(filePath, ios::app);
     if (activeFile.is_open())
     {
@@ -33,7 +45,7 @@ void addPersonalInfo()
             activeFile << "--------Clients Database Records--------" << endl;
             activeFile << "                                        " << endl;
         }
-        activeFile << nInp << "\t\t" << obj.getStatus() << endl;
+        activeFile << nInp << "\t\t" << this->getStatus() << endl;
     }
     else
     {
@@ -47,7 +59,6 @@ void addPersonalInfo()
 
 void Client::run()
 {   
-    Coffee coffee("Core/Source/Files/coffee.txt");
     Registration reg("Core/Source/Files/clients.txt");
     bool loggedIn = false;
 
@@ -63,6 +74,7 @@ void Client::run()
         {
         case 1:
             reg.signup();
+            this->addPersonalInfo();
             break;
         case 2:
             if (reg.login())
@@ -83,17 +95,17 @@ void Client::run()
     {
         ui.clearScreen();
         ui.displayHeader("Client Dashboard");
-        string options[] = {"Enter your personal info", "Order Coffee", "LogOut"};
+        string options[] = {"Show Personal Info", "Order Coffee", "LogOut"};
         ui.displayMenu(options, 3);
         int choice = ui.getInput<int>("Enter choice");
 
         switch (choice)
         {
         case 1:
-            addPersonalInfo();
+            displaySelfInfo();
             break;
         case 2:
-            coffee.deleteCoffee();
+            orderCoffee();
             break;
         case 3:
             reg.logOut();

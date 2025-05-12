@@ -21,7 +21,6 @@ void Coffee::displayAllCoffee()
         }
     }
     in.close();  
-    ui.pauseExecution(); 
 }
 
 void Coffee::createCoffee()
@@ -110,5 +109,24 @@ void Coffee::deleteCoffee()
         cout << "Coffee not found or incorrect name." << endl;
     }
 
+    ui.pauseExecution();
+}
+
+
+void Coffee::findCoffee()
+{   
+    string nInput,coffee_name, price;
+    ui.getStringInput("\n\nWhat coffee do you want" , nInput);
+    ifstream in(filePath);
+    ui.clearScreen();
+    if(in.is_open()){
+        while(in>>coffee_name>>price){
+            if(coffee_name == nInput){
+                ui.displayHeader("Your order");
+                cout << coffee_name << " : $" << price<< endl;
+            }
+        }
+    }
+    in.close();
     ui.pauseExecution();
 }

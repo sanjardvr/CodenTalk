@@ -14,5 +14,6 @@ public:
     {
         return "Enter as Client";
     }
+    void addPersonalInfo();
     void run() override;
 };

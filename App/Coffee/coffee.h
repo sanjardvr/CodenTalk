@@ -22,7 +22,7 @@ public:
     void displayAllCoffee();
     void createCoffee();
     void deleteCoffee();
-
+    void findCoffee();
     // getter setter
     void setName(string n) { name = n; }
     void setPrice(string p) { price = p; }
