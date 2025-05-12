@@ -41,6 +41,7 @@ public:
             }
             activeFile << email << "\t\t" << password << endl;
             cout << "You have successfully registered!" << endl;
+            ui.pauseExecution();
         }
         else
         {

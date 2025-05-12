@@ -21,5 +21,6 @@ public:
     }
     void clients();
     void coffeeModule();
+    void settings();
     void run() override;
 };

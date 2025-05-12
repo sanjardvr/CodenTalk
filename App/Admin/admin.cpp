@@ -66,6 +66,35 @@ void Admin::coffeeModule()
     }
 }
 
+void Admin::settings()
+{  
+    Registration reg("Core/Source/Files/admins.txt");
+    bool running = true;
+    while (running)
+    {
+        ui.clearScreen();
+        ui.displayHeader("Admin Settings View");
+        string options[] = {"Add New Admin", "LogOut"};
+        ui.displayMenu(options, 2);
+        int choice = ui.getInput<int>("Enter choice");
+
+        switch (choice)
+        {
+        case 1:
+            reg.signup("Admins Database Records");
+            break;
+        case 2:
+            reg.logOut();
+            break;
+        case 0:
+            return;
+        default:
+            ui.displayError("Invalid choice");
+            break;
+        }
+    }
+}
+
 void Admin::run()
 {
     Registration reg("Core/Source/Files/admins.txt");
@@ -116,6 +145,7 @@ void Admin::run()
             coffeeModule();
             break;
         case 3:
+            settings();
             break;
         case 0:
             return;
