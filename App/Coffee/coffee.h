@@ -5,7 +5,6 @@
 #include "../../Core/Source/Core/Core.h"
 using namespace std;
 
-
 class Coffee
 {
 private:

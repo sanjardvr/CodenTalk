@@ -11,7 +11,7 @@ void Coffee::displayAllCoffee()
     ui.clearScreen();
     ui.displayHeader("List of all Coffee");
     string line;
- 
+
     ifstream in(filePath);
     if (in.is_open())
     {
@@ -20,11 +20,12 @@ void Coffee::displayAllCoffee()
             cout << line << std::endl;
         }
     }
-    in.close();  
+    in.close();
+    ui.pauseExecution();
 }
 
 void Coffee::createCoffee()
-{   
+{
 
     ofstream activeFile;
     string name;
@@ -63,7 +64,7 @@ void Coffee::deleteCoffee()
 {
     ifstream inFile(filePath);
     ofstream outFile("Core/Source/Files/coffee_temp.txt");
-    string name, nInput , price;
+    string name, nInput, price;
     bool found = false;
 
     ui.clearScreen();
@@ -112,18 +113,20 @@ void Coffee::deleteCoffee()
     ui.pauseExecution();
 }
 
-
 void Coffee::findCoffee()
-{   
-    string nInput,coffee_name, price;
-    ui.getStringInput("\n\nWhat coffee do you want" , nInput);
+{
+    string nInput, coffee_name, price;
+    ui.getStringInput("\n\nWhat coffee do you want", nInput);
     ifstream in(filePath);
     ui.clearScreen();
-    if(in.is_open()){
-        while(in>>coffee_name>>price){
-            if(coffee_name == nInput){
+    if (in.is_open())
+    {
+        while (in >> coffee_name >> price)
+        {
+            if (coffee_name == nInput)
+            {
                 ui.displayHeader("Your order");
-                cout << coffee_name << " : $" << price<< endl;
+                cout << coffee_name << " : $" << price << endl;
             }
         }
     }

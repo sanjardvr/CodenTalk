@@ -1,3 +1,6 @@
+#ifndef PERSON
+#define PERSON
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -34,3 +37,5 @@ public:
     }
 
 };
+
+#endif // Person

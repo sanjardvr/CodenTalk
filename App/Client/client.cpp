@@ -20,7 +20,6 @@ void orderCoffee()
     coffee.findCoffee();
 }
 
-
 void Client::addPersonalInfo()
 {
     string filePath = "Core/Source/Files/clients_db.txt";
@@ -58,7 +57,7 @@ void Client::addPersonalInfo()
 }
 
 void Client::run()
-{   
+{
     Registration reg("Core/Source/Files/clients.txt");
     bool loggedIn = false;
 
@@ -73,7 +72,7 @@ void Client::run()
         switch (choice)
         {
         case 1:
-            reg.signup();
+            reg.signup("Clients Database Records");
             this->addPersonalInfo();
             break;
         case 2:
@@ -119,4 +118,83 @@ void Client::run()
             break;
         }
     }
+}
+
+void Client::showAllClients()
+{
+    ui.clearScreen();
+    ui.displayHeader("List of all Clients");
+    string line;
+
+    ifstream in("Core/Source/Files/clients_db.txt");
+    if (in.is_open())
+    {
+        getline(in, line);
+        getline(in, line);
+        while (getline(in, line))
+        {
+            cout << line << std::endl;
+        }
+    }
+    in.close();
+    ui.pauseExecution();
+}
+
+void Client::deleteClient()
+{   
+    filePath = "Core/Source/Files/clients_db.txt";
+    ifstream inFile(filePath);
+    ofstream outFile("Core/Source/Files/clients_db_temp.txt");
+    string name, nInput, status;
+    bool found = false;
+    string line;
+    ui.clearScreen();
+    ui.displayHeader("Delete Client Proccess");
+    ui.getStringInput("Enter Client Name", nInput);
+
+    if (!inFile || !outFile)
+    {
+        cout << "Failed to open file." << endl;
+        return;
+    }
+
+    getline(inFile, line);
+    outFile << line << endl;
+    getline(inFile, line);
+    outFile << line << endl;
+    while (inFile >> name >> status)
+    {
+        if (name == nInput)
+        {
+            found = true;
+            continue;
+        }
+        outFile << name << "\t\t" << status << endl;
+    }
+
+    inFile.close();
+    outFile.close();
+
+    if (found)
+    {
+        ui.pauseExecution();
+        if (remove(filePath.c_str()) != 0)
+        {
+            cout << "Failed to delete the original file." << endl;
+            return;
+        }
+        if (rename("Core/Source/Files/clients_db_temp.txt", filePath.c_str()) != 0)
+        {
+            cout << "Failed to rename the temp file." << endl;
+            return;
+        }
+        cout << "Client successfully deleted." << endl;
+    }
+    else
+    {
+        remove("Core/Source/Files/clients_db_temp.txt");
+        cout << "Client not found or incorrect name." << endl;
+    }
+
+    ui.pauseExecution();
 }

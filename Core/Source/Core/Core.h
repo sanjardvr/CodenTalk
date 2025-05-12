@@ -46,13 +46,13 @@ public:
         {
             cout << options[i] << " : " << (i + 1) << endl;
         }
-        cout << "Exit Program : 0" << endl;
+        cout << "Back : 0" << endl;
         /*
         Option1 : 1
         Option2 : 2
         Option3 : 3
         Option4 : 4
-        Exit Program : 0
+        Back : 0
     */
     }
 

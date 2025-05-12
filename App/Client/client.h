@@ -1,3 +1,5 @@
+#ifndef CLIENT
+#define CLIENT
 #include <iostream>
 #include <string>
 using namespace std;
@@ -14,6 +16,11 @@ public:
     {
         return "Enter as Client";
     }
+
+    void showAllClients();
+    void deleteClient();
     void addPersonalInfo();
     void run() override;
 };
+
+#endif //This gives compiler ability to skip compilation of this file for several times

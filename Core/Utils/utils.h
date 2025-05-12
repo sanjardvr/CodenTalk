@@ -20,7 +20,7 @@ public:
     }
 
     // sign up methods should first check for an existing file (meaning there were record already), or create new one and then work with it further
-    void signup()
+    void signup(string fileTitle)
     {
         ofstream activeFile;
         string email, password;
@@ -36,7 +36,7 @@ public:
             activeFile.seekp(0, ios::end);
             if (activeFile.tellp() == 0)
             {
-                activeFile << "--------Clients Database Records--------" << endl;
+                activeFile << "--------"<<fileTitle<<"--------" << endl;
                 activeFile << "                                        " << endl;
             }
             activeFile << email << "\t\t" << password << endl;
